@@ -35,12 +35,12 @@
         crossorigin="anonymous"></script>
     <script>
         const socket = io();
-        console.log("JS connected");
         if (navigator.geolocation) {
-            console.log("location exists")
+            console.log("location found")
             navigator.geolocation.watchPosition((position) => {
                 const { latitude, longitude } = position.coords;
                 socket.emit("send-location", { latitude, longitude });
+                console.log(latitude,longitude)
             },
                 (error) => {
                     console.error(error);
@@ -58,11 +58,11 @@
         }).addTo(map);
         const markers = {}
         socket.on("receive-location",(data)=>{
-            console.log("marker working")
             const {id,latitude,longitude} = data;
+            console.log(data)
             map.setView([latitude,longitude]);
             if(markers[id]){
-                marker[id].setLatLng([latitude,longitude]);
+                markers[id].setLatLng([latitude,longitude]);
             }else{
                 markers[id] = L.marker([latitude,longitude]).addTo(map);
             }
@@ -71,8 +71,10 @@
             if(markers[id]){
                 map.removeLayer(markers[id]);
                 delete markers[id];
-                console.log("user removed")
+                console.log("User Disconnected")
             }
+
+
         })
     </script>
 </body>

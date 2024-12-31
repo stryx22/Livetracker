@@ -9,17 +9,19 @@ app.set("view engine", "ejs");
 app.set(express.static(path.join(__dirname,"public")));
 io.on("connection",(socket)=>{
     socket.on("send-location",(data)=>{
-        console.log("location send")
         io.emit("receive-location",{ id: socket.id, ...data});
+        console.log(data)
     });
     socket.on("disconnect", ()=>{
         io.emit("user-disconnected", socket.id);
-        console.log("user disconnected")
+        console.log("User Disconnected having UsedID:", socket.id)
     })
-    console.log("connected");
+    console.log("User Connected");
 });
+
+
 app.get("/",(req,res)=>{
 res.render("index");
-console.log("Server running on port 3000");
+console.log("Server running on port 3003");
 })
 server.listen(3003);
