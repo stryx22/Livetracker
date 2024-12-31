@@ -2,7 +2,7 @@
 
 This repository contains a **Live Location Tracker** built with **Node.js** and **Socket.IO**. Multiple users can connect, share their live locations, and view each other's location details in real-time.
 
-https://i.ibb.co/fpHVhQG/Screenshot-2024-12-31-235017.png
+<img src= "https://i.ibb.co/fpHVhQG/Screenshot-2024-12-31-235017.png">
 
 ## Features
 - Real-time location sharing between multiple users.
@@ -36,7 +36,7 @@ Follow these steps to set up and run the project locally:
 ## Logs
 Location details such as **User ID**, **Longitude**, and **Latitude** will be displayed in the server logs.
 
-https://i.ibb.co/FDThYmf/Screenshot-2024-12-31-234532.png" alt="Screenshot-2024-12-31-234532
+<img src = "https://i.ibb.co/FDThYmf/Screenshot-2024-12-31-234532.png" alt="Screenshot-2024-12-31-234532">
 
 ## Technology Stack
 - **Node.js**
